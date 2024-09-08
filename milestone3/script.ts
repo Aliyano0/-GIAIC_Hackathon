@@ -201,6 +201,8 @@ function generateResume() {
     };
 })};
   
+// Form Input Ends here. // 
+
 
 
 
