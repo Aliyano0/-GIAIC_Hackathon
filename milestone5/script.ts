@@ -7,7 +7,7 @@ const skills = document.querySelector(".skills-data") as HTMLDivElement;
 // Buttons
 const workExpBtn = document.getElementById("workexp-btn") as HTMLButtonElement;
 const skillsBtn = document.getElementById("skills-btn") as HTMLButtonElement;
-const educationBtn = document.getElementById("education-btn") as HTMLButtonElement;
+const educationBtn = document.getElementById("education-btn") as HTMLButtonElement; 
 
 // Event Listeners 
 function workExpExpander(){ 
@@ -151,20 +151,20 @@ function generateResume() {
 
                 <div class="contactinfo-display">
                 <h2 class="display-headings">Contact Information:</h2>
-                <p class="display-paragraphs">Name: ${name}</p>
-                <p class="display-paragraphs">Phone Number: ${phnumber}</p>
-                <p class="display-paragraphs">Email: ${email}</p>
-                <p class="display-paragraphs">Address: ${address}</p>
+                <p class="display-paragraphs"><strong>Name: </strong> <span class="editable">${name}</span></p>
+                <p class="display-paragraphs"><strong>Phone Number: </strong> <span class="editable">${phnumber}</span></p>
+                <p class="display-paragraphs"><strong>Email: </strong> <span class="editable">${email}</span></p>
+                <p class="display-paragraphs"><strong>Address: </strong> <span class="editable">${address}</span></p>
                 </div>
 
 
                 <div class="education-display">
                 <h2 class="display-headings">Education: </h2>
                 <ul>
-                    <li class="display-lis">Institution: ${educationInstitution}</li>
-                    <li class="display-lis">Degree: ${educationDegree}</li>
-                    <li class="display-lis">Start Date: ${educationStartDate}</li>
-                    <li class="display-lis">End Date: ${educationEndDate}</li>
+                    <li class="display-lis"><strong>Institution: </strong> <span class="editable">${educationInstitution}</span></li>
+                    <li class="display-lis"><strong>Degree: </strong> <span class="editable">${educationDegree}</span></li>
+                    <li class="display-lis"><strong>Start Date: </strong> <span class="editable">${educationStartDate}</span></li>
+                    <li class="display-lis"><strong>End Date: </strong> <span class="editable">${educationEndDate}</span></li>
                 </ul>
                 </div>
 
@@ -172,11 +172,11 @@ function generateResume() {
                 <div class="workexp-display">
                 <h2 class="display-headings">Work Experience:</h2>
                 <ul>
-                    <li class="display-lis">Company Name: ${experienceCompany}</li>
-                    <li class="display-lis">Position: ${experiencePosition}</li>
-                    <li class="display-lis">Start Date: ${experienceWorkSdate}</li>
-                    <li class="display-lis">End Date: ${experienceWorkEdate}</li>
-                    <li class="display-lis">Description: ${experienceWorkDesc}</li>
+                    <li class="display-lis"><strong>Company Name: </strong> <span class="editable">${experienceCompany}</span></li>
+                    <li class="display-lis"><strong>Position: </strong> <span class="editable">${experiencePosition}</span></li>
+                    <li class="display-lis"><strong>Start Date: </strong> <span class="editable">${experienceWorkSdate}</span></li>
+                    <li class="display-lis"><strong>End Date: </strong> <span class="editable">${experienceWorkEdate}</span></li>
+                    <li class="display-lis"><strong>Description: </strong> <span class="editable">${experienceWorkDesc}</span></li>
                 </ul>
                 </div>
 
@@ -184,8 +184,8 @@ function generateResume() {
                 <div class="skills-display">
                 <h2 class="display-headings">Skills:</h2>
                 <ul>
-                    <li class="display-lis">Skill: ${skillName}</li>
-                    <li class="display-lis">Skill Level: ${skillLvl}</li>
+                    <li class="display-lis"><strong>Skill: </strong> <span class="editable">${skillName}</span></li>
+                    <li class="display-lis"><strong>Skill Level: </strong> <span class="editable">${skillLvl}</span></li>
                 </ul>
                 </div>
 
@@ -205,7 +205,35 @@ function generateResume() {
 
 // Make Editable Starts here. //
 
+function makeEditable(){
+    const editableElements = document.querySelectorAll('.editable');
+    editableElements.forEach(element => {
+        element.addEventListener('click' , function(){
+            const currentElement = element as HTMLElement;
+            const currentValue = currentElement.textContent || "" ;
 
+            //replace contant
+            if (currentElement.tagName === "P"  || currentElement.tagName === 'SPAN' || currentElement.tagName === 'LI') {
+                const input = document.createElement('input')
+                input.type = 'text';
+                input.value = currentValue;
+                input.classList.add('editing-input');
+
+
+                input.addEventListener('blur', function(){
+                    currentElement.textContent = input.value;
+                    currentElement.style.display = 'inline'
+                    input.remove()
+                })
+
+
+                currentElement.style.display ='none'
+                currentElement.parentNode?.insertBefore(input, currentElement)
+                input.focus()
+            }
+        })
+    })
+}
 
 
 
@@ -216,3 +244,4 @@ educationExpander();
 skillsExpander();
 workExpExpander();
 generateResume();
+makeEditable();
