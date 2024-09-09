@@ -83,8 +83,7 @@ function generateResume() {
     document.getElementById('resume-form')?.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const resumeContainer = document.querySelector(".resume-container") as HTMLDivElement;
-        resumeContainer.style.borderColor = "rgba(125, 186, 92, 0.5)"
+     
         // Get the input values
             
         // Personal Information
@@ -122,8 +121,8 @@ function generateResume() {
         const email = emailElement.value;
         const address = addressElement.value;
         const phnumber = phoneNumberElement.value;
-        const profilePictureFile = profilePicElement.files?.[0]
-        const profilePictureURL = profilePictureFile ? URL.createObjectURL(profilePictureFile) : '';  
+        const profilePictureFile = profilePicElement.files?.[0];
+        const profilePictureURL = profilePictureFile ? URL.createObjectURL(profilePictureFile) : " ";  
         const educationInstitution = educationInstitutionElement.value; 
         const educationDegree = educationDegreeElement.value; 
         const educationStartDate = educationStartDateElement.value; 
@@ -145,7 +144,7 @@ function generateResume() {
 
 
                 <div class="img-cont">
-                <!-- <img class="${profilePictureURL}" src="" alt=""> -->
+                 <img class="img" src="${profilePictureURL}" alt=""> 
                 </div>
 
 
@@ -194,8 +193,11 @@ function generateResume() {
         `;
     
         const resumeContainer = document.querySelector(".resume-container") as HTMLDivElement;
-
+        resumeContainer.style.borderColor = "rgba(125, 186, 92, 0.5)";
         resumeContainer.innerHTML = resumeContent;
+
+        
+        makeEditable();
         } else{
         console.error('One or More Output Elements are Missing');
     };
@@ -205,35 +207,49 @@ function generateResume() {
 
 // Make Editable Starts here. //
 
-function makeEditable(){
-    const editableElements = document.querySelectorAll('.editable');
+function makeEditable() {
+    const editableElements = document.querySelectorAll<HTMLElement>('.editable');
+
     editableElements.forEach(element => {
-        element.addEventListener('click' , function(){
-            const currentElement = element as HTMLElement;
-            const currentValue = currentElement.textContent || "" ;
+        element.addEventListener("click", function () {
+            const currentElement = element;
+            const currentValue = currentElement.textContent?.trim() || "";  // Safely get the text content
 
-            //replace contant
-            if (currentElement.tagName === "P"  || currentElement.tagName === 'SPAN' || currentElement.tagName === 'LI') {
-                const input = document.createElement('input')
-                input.type = 'text';
-                input.value = currentValue;
-                input.classList.add('editing-input');
+            // Create an input element
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = currentValue;
+            input.classList.add('editing-input');
 
+            // Event listener to handle when input loses focus
+            input.addEventListener('blur', function () {
+                currentElement.textContent = input.value;  // Update the original element's content
+                input.remove();  // Remove input field
+                currentElement.style.display = 'inline';  // Make the original element visible again
+            });
 
-                input.addEventListener('blur', function(){
-                    currentElement.textContent = input.value;
-                    currentElement.style.display = 'inline'
-                    input.remove()
-                })
+            // Optionally, allow Enter key to save changes
+            input.addEventListener('keydown', function (event: KeyboardEvent) {
+                if (event.key === 'Enter') {
+                    input.blur();  // Trigger blur event to save changes
+                }
+            });
 
-
-                currentElement.style.display ='none'
-                currentElement.parentNode?.insertBefore(input, currentElement)
-                input.focus()
-            }
-        })
-    })
+            // Hide the original element and replace with input
+            currentElement.style.display = 'none';  // Hide the original element
+            currentElement.parentNode?.insertBefore(input, currentElement);  // Insert input field
+            input.focus();  // Focus on input for editing
+        });
+    });
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -244,4 +260,4 @@ educationExpander();
 skillsExpander();
 workExpExpander();
 generateResume();
-makeEditable();
+

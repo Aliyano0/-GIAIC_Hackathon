@@ -145,7 +145,7 @@ function generateResume() {
 
 
                 <div class="img-cont">
-                <!-- <img class="${profilePictureURL}" src="" alt=""> -->
+                    <img class="${profilePictureURL}" src="" alt="">
                 </div>
 
 
@@ -202,13 +202,6 @@ function generateResume() {
 })};
   
 // Form Input Ends here. // 
-
-// Make Editable Starts here. //
-
-
-
-
-
 
 
 
