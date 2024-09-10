@@ -1,4 +1,3 @@
-"use strict";
 // Sections
 const workExp = document.querySelector(".workexp-data");
 const education = document.querySelector(".education-data");
@@ -7,31 +6,32 @@ const skills = document.querySelector(".skills-data");
 const workExpBtn = document.getElementById("workexp-btn");
 const skillsBtn = document.getElementById("skills-btn");
 const educationBtn = document.getElementById("education-btn");
+const downloadButton = document.getElementById("download-resume");
 // Event Listeners 
 function workExpExpander() {
     let clutter = " ";
     workExpBtn.addEventListener("click", function () {
         clutter += `<label class="labels" for="company">Enter Your Company Name: </label>
-                  <br>
-                  <input class="inputs" type="text" placeholder="Company" id="company">
-                  <br>
-                  <label class="labels" for="position">Enter Your Position: </label>
-                  <br>
-                  <input class="inputs" type="text" placeholder="Position" id="position"> 
-                  <br>
+                    <br>
+                    <input class="inputs" type="text" placeholder="Company" id="company">
+                    <br>
+                    <label class="labels" for="position">Enter Your Position: </label>
+                    <br>
+                    <input class="inputs" type="text" placeholder="Position" id="position"> 
+                    <br>
 
-                  <label class="labels date-labels" for="work-sdate">Input Start Date: </label>
-                  <br class="display-hidden">
-                  <input class="workdates" type="date" name="work-startdate" id="work-sdate">
-                  <br>
-                  <label class="labels date-labels" for="edate">Input End Date: </label>
-                  <br class="display-hidden">
-                  <input class="workdates" type="date" name="enddate" id="work-edate">
-                  <br>
-                  <label class="labels" for="work-desc">Description: </label>
-                  <br>
-                    <textarea class="inputs" name="work-description" id="work-desc" placeholder="Description"></textarea> 
-                  <br>`;
+                    <label class="labels date-labels" for="work-sdate">Input Start Date: </label>
+                    <br class="display-hidden">
+                    <input class="workdates" type="date" name="work-startdate" id="work-sdate">
+                    <br>
+                    <label class="labels date-labels" for="edate">Input End Date: </label>
+                    <br class="display-hidden">
+                    <input class="workdates" type="date" name="enddate" id="work-edate">
+                    <br>
+                    <label class="labels" for="work-desc">Description: </label>
+                    <br>
+                        <textarea class="inputs" name="work-description" id="work-desc" placeholder="Description"></textarea> 
+                    <br>`;
         workExp.innerHTML = clutter;
     });
 }
@@ -40,13 +40,13 @@ function skillsExpander() {
     let clutter = " ";
     skillsBtn.addEventListener("click", function () {
         clutter += `<label class="labels" for="skill">Skill Name: </label>
-                  <br>
-                  <input class="inputs" type="text" placeholder="Skill" id="skill">
-                  <br>
-                  <label class="labels" for="skill-lvl">Skill Level: </label>
-                  <br>
-                  <input class="inputs" type="text" placeholder="Skill Level" id="skill-lvl"> 
-                  <br>`;
+                    <br>
+                    <input class="inputs" type="text" placeholder="Skill" id="skill">
+                    <br>
+                    <label class="labels" for="skill-lvl">Skill Level: </label>
+                    <br>
+                    <input class="inputs" type="text" placeholder="Skill Level" id="skill-lvl"> 
+                    <br>`;
         skills.innerHTML = clutter;
     });
 }
@@ -55,22 +55,22 @@ function educationExpander() {
     let clutter = " ";
     educationBtn.addEventListener("click", function () {
         clutter += `<label class="labels" for="institution">Enter Your Institution Name: </label>
-                  <br>
-                  <input class="inputs" type="text" placeholder="Intstitution" id="institution">
-                  <br>
-                  <label class="labels" for="degree">Enter Your Degree: </label>
-                  <br>
-                  <input class="inputs" type="text" placeholder="Degree" id="degree"> 
-                  <br>
+                    <br>
+                    <input class="inputs" type="text" placeholder="Intstitution" id="institution">
+                    <br>
+                    <label class="labels" for="degree">Enter Your Degree: </label>
+                    <br>
+                    <input class="inputs" type="text" placeholder="Degree" id="degree"> 
+                    <br>
 
-                  <label class="labels date-labels" for="sdate">Input Start Date: </label>
-                  <br class="display-hidden">
-                  <input class="edudates" type="date" name="startdate" id="sdate">
-                  <br>
-                  <label class="labels date-labels" for="edate">Input End Date: </label>
-                  <br class="display-hidden">
-                  <input class="edudates edudate-last" type="date" name="enddate" id="edate">
-                  <br>`;
+                    <label class="labels date-labels" for="sdate">Input Start Date: </label>
+                    <br class="display-hidden">
+                    <input class="edudates" type="date" name="startdate" id="sdate">
+                    <br>
+                    <label class="labels date-labels" for="edate">Input End Date: </label>
+                    <br class="display-hidden">
+                    <input class="edudates edudate-last" type="date" name="enddate" id="edate">
+                    <br>`;
         education.innerHTML = clutter;
     });
 }
@@ -123,64 +123,64 @@ function generateResume() {
             const skillLvl = skillLvlElement.value;
             // Update the resume preview
             const resumeContent = `
-            <div class="heading-display">
-                <h1 class="heading-text-display">Resume</h1>
-            </div>
+                    <div class="heading-display">
+                        <h1 class="heading-text-display">Resume</h1>
+                    </div>
 
-            <div class="main-content">
-
-
-                <div class="img-cont">
-                 <img class="img" src="${profilePictureURL}" alt=""> 
-                </div>
+                    <div class="main-content">
 
 
-                <div class="contactinfo-display">
-                <h2 class="display-headings">Contact Information:</h2>
-                <p class="display-paragraphs"><strong>Name: </strong> <span class="editable">${name}</span></p>
-                <p class="display-paragraphs"><strong>Phone Number: </strong> <span class="editable">${phnumber}</span></p>
-                <p class="display-paragraphs"><strong>Email: </strong> <span class="editable">${email}</span></p>
-                <p class="display-paragraphs"><strong>Address: </strong> <span class="editable">${address}</span></p>
-                </div>
+                        <div class="img-cont">
+                        <img class="img" src="${profilePictureURL}" alt=""> 
+                        </div>
 
 
-                <div class="education-display">
-                <h2 class="display-headings">Education: </h2>
-                <ul>
-                    <li class="display-lis"><strong>Institution: </strong> <span class="editable">${educationInstitution}</span></li>
-                    <li class="display-lis"><strong>Degree: </strong> <span class="editable">${educationDegree}</span></li>
-                    <li class="display-lis"><strong>Start Date: </strong> <span class="editable">${educationStartDate}</span></li>
-                    <li class="display-lis"><strong>End Date: </strong> <span class="editable">${educationEndDate}</span></li>
-                </ul>
-                </div>
+                        <div class="contactinfo-display">
+                        <h2 class="display-headings">Contact Information:</h2>
+                        <p class="display-paragraphs"><strong>Name: </strong> <span class="editable">${name}</span></p>
+                        <p class="display-paragraphs"><strong>Phone Number: </strong> <span class="editable">${phnumber}</span></p>
+                        <p class="display-paragraphs"><strong>Email: </strong> <span class="editable">${email}</span></p>
+                        <p class="display-paragraphs"><strong>Address: </strong> <span class="editable">${address}</span></p>
+                        </div>
 
 
-                <div class="workexp-display">
-                <h2 class="display-headings">Work Experience:</h2>
-                <ul>
-                    <li class="display-lis"><strong>Company Name: </strong> <span class="editable">${experienceCompany}</span></li>
-                    <li class="display-lis"><strong>Position: </strong> <span class="editable">${experiencePosition}</span></li>
-                    <li class="display-lis"><strong>Start Date: </strong> <span class="editable">${experienceWorkSdate}</span></li>
-                    <li class="display-lis"><strong>End Date: </strong> <span class="editable">${experienceWorkEdate}</span></li>
-                    <li class="display-lis"><strong>Description: </strong> <span class="editable">${experienceWorkDesc}</span></li>
-                </ul>
-                </div>
+                        <div class="education-display">
+                        <h2 class="display-headings">Education: </h2>
+                        <ul>
+                            <li class="display-lis"><strong>Institution: </strong> <span class="editable">${educationInstitution}</span></li>
+                            <li class="display-lis"><strong>Degree: </strong> <span class="editable">${educationDegree}</span></li>
+                            <li class="display-lis"><strong>Start Date: </strong> <span class="editable">${educationStartDate}</span></li>
+                            <li class="display-lis"><strong>End Date: </strong> <span class="editable">${educationEndDate}</span></li>
+                        </ul>
+                        </div>
 
 
-                <div class="skills-display">
-                <h2 class="display-headings">Skills:</h2>
-                <ul>
-                    <li class="display-lis"><strong>Skill: </strong> <span class="editable">${skillName}</span></li>
-                    <li class="display-lis"><strong>Skill Level: </strong> <span class="editable">${skillLvl}</span></li>
-                </ul>
-                </div>
+                        <div class="workexp-display">
+                        <h2 class="display-headings">Work Experience:</h2>
+                        <ul>
+                            <li class="display-lis"><strong>Company Name: </strong> <span class="editable">${experienceCompany}</span></li>
+                            <li class="display-lis"><strong>Position: </strong> <span class="editable">${experiencePosition}</span></li>
+                            <li class="display-lis"><strong>Start Date: </strong> <span class="editable">${experienceWorkSdate}</span></li>
+                            <li class="display-lis"><strong>End Date: </strong> <span class="editable">${experienceWorkEdate}</span></li>
+                            <li class="display-lis"><strong>Description: </strong> <span class="editable">${experienceWorkDesc}</span></li>
+                        </ul>
+                        </div>
 
 
-            </div>
-        `;
+                        <div class="skills-display">
+                        <h2 class="display-headings">Skills:</h2>
+                        <ul>
+                            <li class="display-lis"><strong>Skill: </strong> <span class="editable">${skillName}</span></li>
+                            <li class="display-lis"><strong>Skill Level: </strong> <span class="editable">${skillLvl}</span></li>
+                        </ul>
+                        </div>
+
+
+                    </div>`;
             const resumeContainer = document.querySelector(".resume-container");
             resumeContainer.style.borderColor = "rgba(125, 186, 92, 0.5)";
             resumeContainer.innerHTML = resumeContent;
+            downloadButton.style.display = "inline";
             makeEditable();
         }
         else {
@@ -213,6 +213,7 @@ function makeEditable() {
             input.addEventListener('keydown', function (event) {
                 if (event.key === 'Enter') {
                     input.blur(); // Trigger blur event to save changes
+                    alert("Resume updated successfully!");
                 }
             });
             // Hide the original element and replace with input
@@ -222,7 +223,9 @@ function makeEditable() {
         });
     });
 }
+// Make editable ends here. //
 educationExpander();
 skillsExpander();
 workExpExpander();
 generateResume();
+export {};

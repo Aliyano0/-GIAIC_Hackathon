@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editable Website Builder</title>
-</head>
-<link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Website Builder</title>
+  </head>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <body>
   <div class="container">
       <header class="heading">
@@ -40,7 +42,7 @@
 
               <label class="labels" for="phnumber">Phone Number: </label>
               <br class="display-hidden">
-              <input class="inputs num-input" type="tel" name="phnumber" id="phnumber" value="92-" minlength="12" maxlength="15"> 
+              <input class="inputs num-input" type="tel" name="phnumber" id="phnumber" value="92-" minlength="10" maxlength="15"> 
               <br>
               
               <label class="labels" for="resume-image">Choose an Image: </label>
@@ -110,11 +112,43 @@
         <div class="resume-container">
           
         </div>
+
+        <button type="button" class="btns" id="download-resume">Download Resume</button>
       </main>
       <footer class="footer-text">
         <h1>Created by Aliyan Aqeel with &#10084;</h1>
       </footer>
   </div>
 </body>
-<script src="script.js"></script>
+      <script type="module" src="script.js"></script>
+
+      <script>
+          // PDF FEATURE STARTS HERE. //
+          window.jsPDF = window.jspdf.jsPDF;
+          let doc = new jsPDF();
+          const downloadButton = document.getElementById("download-resume");
+          function pdfDownloader() {
+              if (downloadButton) {
+                  downloadButton.addEventListener("click", function () {
+                      
+                      const resume = document.querySelector(".resume-container");
+                      alert("This isn't finish yet so the width of pdf is not fitting correctly I'll fix it later and also add the custom url")
+                      if (resume) {
+                          doc.html(resume, {
+                              callback: function (doc) {
+                                  doc.save("resume.pdf");
+                              }, 
+                          });
+                      } else {
+                          console.error("Resume not found!");
+                      }
+                  });
+              }
+          }
+
+          // Call the function when the DOM is ready
+          document.addEventListener("DOMContentLoaded", pdfDownloader);
+
+
+      </script>
 </html>

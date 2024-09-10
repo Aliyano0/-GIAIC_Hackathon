@@ -171,6 +171,13 @@ main{
   font-weight: 550;
   font-size: 1.1em;
 }
+
+#download-resume{
+  display: none;
+  margin-top: -1em;
+  margin-left: 21rem;
+  font-size: 24px;
+}
 @media screen and (max-width: 1600px) {
   .container{
     width: 75%;
