@@ -104,6 +104,7 @@ function generateResume() {
         const skillLvlElement = document.getElementById("skill-lvl");
         if (firstNameElement && lastNameElement && emailElement && addressElement && phoneNumberElement && profilePicElement && educationInstitutionElement && educationDegreeElement && educationStartDateElement && educationEndDateElement && experienceCompanyElement && experiencePositionElement && experienceWorkSdateElement && experienceWorkEdateElement && experienceWorkDescElement && skillLvlElement && skillsNameElement) {
             // Getting values of Elements:
+            const firstName = firstNameElement.value;
             const name = firstNameElement.value + " " + lastNameElement.value;
             const email = emailElement.value;
             const address = addressElement.value;
@@ -182,6 +183,7 @@ function generateResume() {
             resumeContainer.innerHTML = resumeContent;
             downloadButton.style.display = "inline";
             makeEditable();
+            history.pushState({ page: "page2" }, `${firstName}'s Resume`, `${firstName}-resume.vercel.app`);
         }
         else {
             console.error('One or More Output Elements are Missing');

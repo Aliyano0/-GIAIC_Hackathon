@@ -118,6 +118,7 @@ function generateResume() {
 
             
                 // Getting values of Elements:
+                const firstName = firstNameElement.value;
                 const name = firstNameElement.value + " " + lastNameElement.value;
                 const email = emailElement.value;
                 const address = addressElement.value;
@@ -200,7 +201,7 @@ function generateResume() {
             
                 makeEditable();
 
-       
+                history.pushState({page: "page2"}, `${firstName}'s Resume`, `${firstName}-resume.vercel.app`);
 
         } else{
         console.error('One or More Output Elements are Missing');
