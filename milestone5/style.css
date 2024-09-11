@@ -249,14 +249,12 @@ main{
   }
   /* .main-content{
     margin-left: 5px;
-  }
-  .display-headings{
-
-  }
+  } */
   .display-paragraphs, .display-lis{
-    margin: 10px 2px; 
-  } */ 
-
+    font-size: 1em;
+  }
+  
+   
 }
 @media screen and (max-width: 500px) {
   .container{
