@@ -249,7 +249,9 @@ main{
   .display-paragraphs, .display-lis{
     margin: 10px 2px; 
   } */ 
-
+  .display-paragraphs, .display-lis{
+    font-size: 1em;
+  }
 }
 @media screen and (max-width: 500px) {
   .container{
