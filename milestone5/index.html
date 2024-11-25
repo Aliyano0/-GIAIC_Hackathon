@@ -1,86 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editable Website Builder</title>
   </head>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<body>
-  <div class="container">
+  <body>
+    <div class="container">
       <header class="heading">
         <h1 class="heading-text">Milestone 5: Build your Resume</h1>
-      </header> 
+      </header>
       <main>
         <div class="form-div">
           <form method="GET" class="form-container" id="resume-form">
             <!-- Contact Information starts here  -->
             <div class="contact-information-section">
               <h2 class="form-headings">Contact Information:</h2>
-              
+
               <label class="labels" for="fname">First Name: </label>
-              <br>
-              <input class="inputs fname-input" type="text" placeholder="Input your first name" id="fname" required>
-              <br>
-              
+              <br />
+              <input
+                class="inputs fname-input"
+                type="text"
+                placeholder="Input your first name"
+                id="fname"
+                required
+              />
+              <br />
+
               <label class="labels" for="lname">Last Name: </label>
-              <br> 
-              <input class="inputs lname-input" type="text" placeholder="Input your last name" id="lname" required>
-              <br>
-              
+              <br />
+              <input
+                class="inputs lname-input"
+                type="text"
+                placeholder="Input your last name"
+                id="lname"
+                required
+              />
+              <br />
+
               <label class="labels" for="email">Email: </label>
-              <br>
-              <input class="inputs email-input" type="email" name="email" id="email" placeholder="Input your email" required>
-              <br>
-              
+              <br />
+              <input
+                class="inputs email-input"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Input your email"
+                required
+              />
+              <br />
+
               <label class="labels" for="address">Address: </label>
-              <br class="display-hidden">
-              <input class="inputs" type="text" name="address" id="address" placeholder="Enter Address"> 
-              <br>
+              <br class="display-hidden" />
+              <input
+                class="inputs"
+                type="text"
+                name="address"
+                id="address"
+                placeholder="Enter Address"
+              />
+              <br />
 
               <label class="labels" for="phnumber">Phone Number: </label>
-              <br class="display-hidden">
-              <input class="inputs num-input" type="tel" name="phnumber" id="phnumber" value="92-" minlength="10" maxlength="15"> 
-              <br>
-              
+              <br class="display-hidden" />
+              <input
+                class="inputs num-input"
+                type="tel"
+                name="phnumber"
+                id="phnumber"
+                value="92-"
+                minlength="10"
+                maxlength="15"
+              />
+              <br />
+
               <label class="labels" for="resume-image">Choose an Image: </label>
-              <input type="file" id="resume-image" accept="image/*">
-              <br>
+              <input type="file" id="resume-image" accept="image/*" />
+              <br />
             </div>
             <!-- Contact Information ends here -->
-            
+
             <div class="border"></div>
 
             <!-- Education starts here -->
-             <div class="education-section">
-                <h2 class="form-headings">Education</h2>
-                
-                <div class="education-data">
-                  <!-- CODE GENERATED THROUGH TYPESCRIPT INTERACTIVITY -->
-                
-                </div>
+            <div class="education-section">
+              <h2 class="form-headings">Education</h2>
 
-                <button type="button" class="btns" id="education-btn">Add Education</button>
-             </div>
-            
+              <div class="education-data">
+                <label class="labels" for="institution"
+                  >Enter Your Institution Name:
+                </label>
+                <br />
+                <input
+                  class="inputs"
+                  type="text"
+                  placeholder="Intstitution"
+                  id="institution"
+                />
+                <br />
+                <label class="labels" for="degree">Enter Your Degree: </label>
+                <br />
+                <input
+                  class="inputs"
+                  type="text"
+                  placeholder="Degree"
+                  id="degree"
+                />
+                <br />
+
+                <label class="labels date-labels" for="sdate"
+                  >Input Start Date:
+                </label>
+                <br class="display-hidden" />
+                <input
+                  class="edudates"
+                  type="date"
+                  name="startdate"
+                  id="sdate"
+                />
+                <br />
+                <label class="labels date-labels" for="edate"
+                  >Input End Date:
+                </label>
+                <br class="display-hidden" />
+                <input
+                  class="edudates edudate-last"
+                  type="date"
+                  name="enddate"
+                  id="edate"
+                />
+                <br />
+                <!-- CODE GENERATED THROUGH TYPESCRIPT INTERACTIVITY -->
+              </div>
+
+              <button type="button" class="btns" id="education-btn">
+                Add Education
+              </button>
+            </div>
+
             <!-- Education ends here -->
 
             <div class="border"></div>
 
             <!-- Skills starts here -->
 
-             <div class="skills-section">
-                <h2 class="form-headings">Skills</h2>
+            <div class="skills-section">
+              <h2 class="form-headings">Skills</h2>
 
-                <div class="skills-data ">
-                  <!-- CODE GENERATED THROUGH TYPESCRIPT INTERACTIVITY -->
-                  
-                </div>
+              <div class="skills-data">
+                <label class="labels" for="skill">Skill Name: </label>
+                <br />
+                <input
+                  class="inputs"
+                  type="text"
+                  placeholder="Skill"
+                  id="skill"
+                />
+                <br />
+                <label class="labels" for="skill-lvl">Skill Level: </label>
+                <br />
+                <input
+                  class="inputs"
+                  type="text"
+                  placeholder="Skill Level"
+                  id="skill-lvl"
+                />
+                <br />
+                <!-- CODE GENERATED THROUGH TYPESCRIPT INTERACTIVITY -->
+              </div>
 
-                <button type="button" class="btns" id="skills-btn">Add Skills</button>
-             </div>
+              <button type="button" class="btns" id="skills-btn">
+                Add Skills
+              </button>
+            </div>
 
             <!-- Skills ends here -->
 
@@ -88,16 +184,70 @@
 
             <!-- Work Experience starts here -->
 
-             <div class="work-exp">
-                <h2 class="form-headings">Work Experience</h2>
+            <div class="work-exp">
+              <h2 class="form-headings">Work Experience</h2>
 
-                <div class="workexp-data">
-                  <!-- CODE GENERATED THROUGH TYPESCRIPT INTERACTIVITY -->
-                </div>
+              <div class="workexp-data">
+                <label class="labels" for="company"
+                  >Enter Your Company Name:
+                </label>
+                <br />
+                <input
+                  class="inputs"
+                  type="text"
+                  placeholder="Company"
+                  id="company"
+                />
+                <br />
+                <label class="labels" for="position"
+                  >Enter Your Position:
+                </label>
+                <br />
+                <input
+                  class="inputs"
+                  type="text"
+                  placeholder="Position"
+                  id="position"
+                />
+                <br />
 
-
-                <button type="button" class="btns" id="workexp-btn">Add Work Experience</button>
-             </div>
+                <label class="labels date-labels" for="work-sdate"
+                  >Input Start Date:
+                </label>
+                <br class="display-hidden" />
+                <input
+                  class="workdates"
+                  type="date"
+                  name="work-startdate"
+                  id="work-sdate"
+                />
+                <br />
+                <label class="labels date-labels" for="edate"
+                  >Input End Date:
+                </label>
+                <br class="display-hidden" />
+                <input
+                  class="workdates"
+                  type="date"
+                  name="enddate"
+                  id="work-edate"
+                />
+                <br />
+                <label class="labels" for="work-desc">Description: </label>
+                <br />
+                <textarea
+                  class="inputs"
+                  name="work-description"
+                  id="work-desc"
+                  placeholder="Description"
+                ></textarea>
+                <br />
+              </div>
+              <!-- CODE GENERATED THROUGH TYPESCRIPT INTERACTIVITY -->
+              <button type="button" class="btns" id="workexp-btn">
+                Add Work Experience
+              </button>
+            </div>
 
             <!-- Work Experience ends here -->
 
@@ -108,47 +258,47 @@
           </form>
         </div>
 
-
         <div class="resume-container">
-          
+          <!-- Resume Code generates here. -->
         </div>
 
-        <button type="button" class="btns" id="download-resume">Download Resume</button>
+        <p class="hint-para">"Click on the text you want to edit"</p>
+        <div class="download-btn">
+          <button type="button" class="btns" id="download-resume">
+            Download Resume
+          </button>
+        </div>
       </main>
       <footer class="footer-text">
         <h1>Created by Aliyan Aqeel with &#10084;</h1>
       </footer>
-  </div>
-</body>
-      <script type="module" src="script.js"></script>
+    </div>
+  </body>
+  <script type="module" src="script.js"></script>
 
-      <script>
-          // PDF FEATURE STARTS HERE. //
-          window.jsPDF = window.jspdf.jsPDF;
-          let doc = new jsPDF();
-          const downloadButton = document.getElementById("download-resume");
-          function pdfDownloader() {
-              if (downloadButton) {
-                  downloadButton.addEventListener("click", function () {
-                      
-                      const resume = document.querySelector(".resume-container");
-                      alert("The Resume is editable now but PDF downloader isn't finish yet because the width of pdf is not fitting correctly I'll fix it later and will also add the custom url");
-                      if (resume) {
-                          doc.html(resume, {
-                              callback: function (doc) {
-                                  doc.save("resume.pdf");
-                              }, 
-                          });
-                      } else {
-                          console.error("Resume not found!");
-                      }
-                  });
-              }
+  <script>
+    // PDF FEATURE STARTS HERE. //
+    window.jsPDF = window.jspdf.jsPDF;
+    let doc = new jsPDF("p", "mm", "a4");
+    const downloadButton = document.getElementById("download-resume");
+    function pdfDownloader() {
+      if (downloadButton) {
+        downloadButton.addEventListener("click", function () {
+          const resume = document.querySelector(".resume-container");
+          if (resume) {
+            doc.html(resume, {
+              callback: function (doc) {
+                doc.save("resume.pdf");
+              },
+            });
+          } else {
+            console.error("Resume not found!");
           }
+        });
+      }
+    }
 
-          // Call the function when the DOM is ready
-          document.addEventListener("DOMContentLoaded", pdfDownloader);
-
-
-      </script>
+    // Call the function when the DOM is ready
+    document.addEventListener("DOMContentLoaded", pdfDownloader);
+  </script>
 </html>

@@ -1,87 +1,92 @@
-:root{
+:root {
   --green: #7dba5c;
   --black: #000;
   --white: #fff;
 }
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-body{
-  width: 100%; 
+body {
+  width: 100%;
   height: 100%;
-  /* background: var(--black); */
   color: var(--green);
 }
-.container{
+.container {
   width: 50vw;
   /* background-color: rgb(2, 17, 2); */
   background-color: #fff;
   margin: auto;
+  border: 1px solid rgba(139, 137, 137, 0.205);
 }
-main{
-  border: 2px solid rgba(0, 0, 0, 0.07);
-  padding-bottom:  2rem;
+main {
+  border: 2px solid rgba(0, 0, 0, 0.013);
+  padding-bottom: 2rem;
 }
-.form-container{
+.form-container {
   padding: 2em;
   margin: 0 3em;
 }
-.heading{
+.heading {
   background-color: var(--green);
 }
-.heading-text{
+.heading-text {
   text-align: center;
   color: var(--white);
   padding: 40px;
   font-size: 45px;
 }
-.form-headings{
+.form-headings {
   font-size: 2.3em;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
 /* Inputs Styling */
-.inputs{
+input {
+  border: 1px solid rgba(0, 0, 0, 0.339);
+  border-radius: 5px;
+}
+.inputs {
   font-size: 16px;
   padding: 8px 5px;
   color: var(--black);
   width: 60%;
   margin: 20px 0;
 }
-.num-input{
+.num-input {
   width: 25%;
 }
 
-#resume-image{
+#resume-image {
   margin: 10px 0;
+  border: none;
 }
 
-.labels{
+.labels {
   font-size: 1.35em;
   font-weight: 550;
   margin-top: 10px;
 }
-.border{
+.border {
   border-top: 1px solid #7dba5c;
   margin: 3rem 0;
 }
-.education-section{
-  margin-top: 10px; 
+.education-section {
+  margin-top: 10px;
 }
-.edudates{
+.edudates {
   margin: 10px;
 }
-.edudate-last{
+.edudate-last {
   margin-bottom: 20px;
 }
-.workdates{
+.workdates {
   margin: 10px 0;
 }
-.btns{
+.btns {
   background-color: var(--green);
   border: none;
   color: var(--white);
@@ -93,65 +98,65 @@ main{
   cursor: pointer;
 }
 
-.footer-text{
+.footer-text {
   text-align: center;
   padding: 40px;
   background-color: var(--green);
   color: var(--white);
 }
-.display-hidden{
+.display-hidden {
   display: hidden;
 }
 
-.resume-container{
-  width: 80%;
+.resume-container {
+  width: 750px;
   margin: 3em auto;
   padding: 2em;
   border: 2px solid #fff;
   border-radius: 2px;
   position: relative;
   transition: ease-in;
-  color: rgb(99, 122, 53); 
+  color: rgb(99, 122, 53);
 }
-.heading-display{
+.heading-display {
   background-color: var(--green);
   border-radius: 4px;
 }
-.heading-text-display{
+.heading-text-display {
   padding: 20px;
   margin-left: 20px;
   color: var(--white);
 }
-.main-content{
+.main-content {
   margin-top: 25px;
   margin-left: 20px;
 }
-.contactinfo-display{
+.contactinfo-display {
   margin: 15px 0;
 }
-.display-headings{
+.display-headings {
   font-size: 2em;
   color: var(--green);
 }
-.display-paragraphs{
+.display-paragraphs {
   font-size: 1.3em;
   font-weight: 500;
   margin: 10px;
 }
-.display-lis{
+.display-lis {
   font-size: 1.3em;
   margin: 10px 30px;
 }
-.education-display{
+.education-display {
   margin: 30px 0;
 }
-.workexp-display{
+.workexp-display {
   margin: 30px 0;
 }
-.skills-display{
+.skills-display {
   margin: 30px 0;
 }
-.img-cont{
+.img-cont {
   overflow: hidden;
   width: 11rem;
   height: 11rem;
@@ -160,122 +165,140 @@ main{
   right: 3rem;
   top: 8rem;
 }
-.img{
+.img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center center;
 }
-.editable{
+.editable {
   color: var(--green);
   font-weight: 550;
   font-size: 1.1em;
 }
 
-#download-resume{
+#download-resume {
   display: none;
-  margin-top: -1em;
-  margin-left: 21rem;
   font-size: 24px;
 }
+.download-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hint-para {
+  display: none;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(206, 8, 8, 0.819);
+  margin-bottom: 20px;
+}
 @media screen and (max-width: 1600px) {
-  .container{
+  .container {
     width: 75%;
   }
-  .num-input{
+  .num-input {
     width: 25%;
   }
 }
 @media screen and (max-width: 1300px) {
-  .container{
+  .container {
     width: 80%;
   }
-  .num-input{
+  .num-input {
     width: 25%;
   }
 }
 @media screen and (max-width: 1100px) {
-  .container{
+  .container {
     width: 85%;
   }
-  .inputs{
+  .inputs {
     margin: 20px 0;
   }
-  .num-input{
+  .num-input {
     width: 40%;
   }
-  .resume-container{
+  .resume-container {
     width: 85%;
   }
 }
 
 @media screen and (max-width: 975px) {
-  .container{
+  .container {
     width: 100%;
   }
-  .display-hidden{
+  .display-hidden {
     display: block;
   }
-  .form-container{
+  .form-container {
     margin: 0;
   }
-  .resume-container{
+  .resume-container {
     width: 96%;
   }
 }
 @media screen and (max-width: 700px) {
-  .container{
+  .container {
     width: 100%;
   }
-  .display-hidden{
+  .display-hidden {
     display: block;
   }
-  .form-container{
+  .form-container {
     margin: 0;
   }
-  .inputs{
+  .inputs {
     margin: 20px 0;
   }
-  .btns{
+  .btns {
     padding: 6px 5px;
   }
-  .resume-container{
+  .resume-container {
     width: 96%;
     padding: 1rem;
   }
-  .img-cont{
+  .img-cont {
     position: static;
-    margin: 20px auto;
+    margin: 20px auto 40px auto;
   }
   /* .main-content{
     margin-left: 5px;
   } */
-  .display-paragraphs, .display-lis{
+  .display-paragraphs,
+  .display-lis {
     font-size: 1em;
   }
-  
-   
 }
 @media screen and (max-width: 500px) {
-  .container{
+  .container {
     width: 100%;
   }
-  .display-hidden{
+  .display-hidden {
     display: block;
   }
-  .form-container{
+  .form-container {
     margin: 0;
   }
-  .num-input{
+  .num-input {
     width: 40%;
   }
-  .inputs{
+  .display-headings {
+    font-size: 1.2rem;
+  }
+  .display-paragraphs,
+  .display-lis {
+    font-size: 0.7em;
+  }
+  .inputs {
     margin: 20px 0;
   }
-  .btns{
+  .btns {
     padding: 6px 5px;
   }
-  .resume-container{
+  .resume-container {
     width: 98%;
   }
 }

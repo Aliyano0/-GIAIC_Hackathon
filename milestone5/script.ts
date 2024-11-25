@@ -7,13 +7,14 @@ const skills = document.querySelector(".skills-data") as HTMLDivElement;
 // Buttons
 const workExpBtn = document.getElementById("workexp-btn") as HTMLButtonElement;
 const skillsBtn = document.getElementById("skills-btn") as HTMLButtonElement;
-const educationBtn = document.getElementById("education-btn") as HTMLButtonElement; 
+const educationBtn = document.getElementById("education-btn") as HTMLButtonElement;
 
 const downloadButton = document.getElementById("download-resume") as HTMLButtonElement;
+const hintPara = document.querySelector(".hint-para") as HTMLButtonElement;
 // Event Listeners 
-function workExpExpander(){ 
-    let clutter: string= " ";
-    workExpBtn.addEventListener("click", function(){
+function workExpExpander() {
+    let clutter: string = " ";
+    workExpBtn.addEventListener("click", function () {
         clutter += `<label class="labels" for="company">Enter Your Company Name: </label>
                     <br>
                     <input class="inputs" type="text" placeholder="Company" id="company">
@@ -35,12 +36,13 @@ function workExpExpander(){
                     <br>
                         <textarea class="inputs" name="work-description" id="work-desc" placeholder="Description"></textarea> 
                     <br>`;
-                        
+
         workExp.innerHTML = clutter
-})};
-function skillsExpander(){
-    let clutter: string= " ";
-    skillsBtn.addEventListener("click", function(){
+    })
+};
+function skillsExpander() {
+    let clutter: string = " ";
+    skillsBtn.addEventListener("click", function () {
         clutter += `<label class="labels" for="skill">Skill Name: </label>
                     <br>
                     <input class="inputs" type="text" placeholder="Skill" id="skill">
@@ -49,12 +51,13 @@ function skillsExpander(){
                     <br>
                     <input class="inputs" type="text" placeholder="Skill Level" id="skill-lvl"> 
                     <br>`;
-                    
-    skills.innerHTML = clutter
-})};
-function educationExpander(){
-    let clutter: string= " ";
-    educationBtn.addEventListener("click", function(){
+
+        skills.innerHTML = clutter
+    })
+};
+function educationExpander() {
+    let clutter: string = " ";
+    educationBtn.addEventListener("click", function () {
         clutter += `<label class="labels" for="institution">Enter Your Institution Name: </label>
                     <br>
                     <input class="inputs" type="text" placeholder="Intstitution" id="institution">
@@ -72,21 +75,22 @@ function educationExpander(){
                     <br class="display-hidden">
                     <input class="edudates edudate-last" type="date" name="enddate" id="edate">
                     <br>`;
-                    
+
         education.innerHTML = clutter
-})};
+    })
+};
 
 // Interactivity ends here // 
 
 // Form Input starts here  //
 
 function generateResume() {
-    document.getElementById('resume-form')?.addEventListener('submit', function(event) {
+    document.getElementById('resume-form')?.addEventListener('submit', function (event) {
         event.preventDefault();
 
-     
+
         // Get the input values
-            
+
         // Personal Information
         const firstNameElement = document.getElementById("fname") as HTMLInputElement;
         const lastNameElement = document.getElementById("lname") as HTMLInputElement;
@@ -112,32 +116,32 @@ function generateResume() {
         const skillsNameElement = document.getElementById("skill") as HTMLInputElement;
         const skillLvlElement = document.getElementById("skill-lvl") as HTMLInputElement;
 
-        if(firstNameElement && lastNameElement && emailElement && addressElement && phoneNumberElement && profilePicElement && educationInstitutionElement && educationDegreeElement && educationStartDateElement && educationEndDateElement && experienceCompanyElement && experiencePositionElement && experienceWorkSdateElement && experienceWorkEdateElement && experienceWorkDescElement && skillLvlElement && skillsNameElement){
+        if (firstNameElement && lastNameElement && emailElement && addressElement && phoneNumberElement && profilePicElement && educationInstitutionElement && educationDegreeElement && educationStartDateElement && educationEndDateElement && experienceCompanyElement && experiencePositionElement && experienceWorkSdateElement && experienceWorkEdateElement && experienceWorkDescElement && skillLvlElement && skillsNameElement) {
 
 
 
-            
-                // Getting values of Elements:
-                const firstName = firstNameElement.value;
-                const name = firstNameElement.value + " " + lastNameElement.value;
-                const email = emailElement.value;
-                const address = addressElement.value;
-                const phnumber = phoneNumberElement.value;
-                const profilePictureFile = profilePicElement.files?.[0];
-                const profilePictureURL = profilePictureFile ? URL.createObjectURL(profilePictureFile) : " ";  
-                const educationInstitution = educationInstitutionElement.value; 
-                const educationDegree = educationDegreeElement.value; 
-                const educationStartDate = educationStartDateElement.value; 
-                const educationEndDate = educationEndDateElement.value; 
-                const experienceCompany = experienceCompanyElement.value;
-                const experiencePosition = experiencePositionElement.value;
-                const experienceWorkSdate = experienceWorkSdateElement.value;
-                const experienceWorkEdate = experienceWorkEdateElement.value;
-                const experienceWorkDesc = experienceWorkDescElement.value;
-                const skillName = skillsNameElement.value;
-                const skillLvl = skillLvlElement.value;
-                // Update the resume preview
-                const resumeContent = `
+
+            // Getting values of Elements:
+            const firstName = firstNameElement.value;
+            const name = firstNameElement.value + " " + lastNameElement.value;
+            const email = emailElement.value;
+            const address = addressElement.value;
+            const phnumber = phoneNumberElement.value;
+            const profilePictureFile = profilePicElement.files?.[0];
+            const profilePictureURL = profilePictureFile ? URL.createObjectURL(profilePictureFile) : " ";
+            const educationInstitution = educationInstitutionElement.value;
+            const educationDegree = educationDegreeElement.value;
+            const educationStartDate = educationStartDateElement.value;
+            const educationEndDate = educationEndDateElement.value;
+            const experienceCompany = experienceCompanyElement.value;
+            const experiencePosition = experiencePositionElement.value;
+            const experienceWorkSdate = experienceWorkSdateElement.value;
+            const experienceWorkEdate = experienceWorkEdateElement.value;
+            const experienceWorkDesc = experienceWorkDescElement.value;
+            const skillName = skillsNameElement.value;
+            const skillLvl = skillLvlElement.value;
+            // Update the resume preview
+            const resumeContent = `
                     <div class="heading-display">
                         <h1 class="heading-text-display">Resume</h1>
                     </div>
@@ -192,22 +196,24 @@ function generateResume() {
 
 
                     </div>`;
-        
-                const resumeContainer = document.querySelector(".resume-container") as HTMLDivElement;
-                resumeContainer.style.borderColor = "rgba(125, 186, 92, 0.5)";
-                resumeContainer.innerHTML = resumeContent;
-                
-                downloadButton.style.display = "inline";
-            
-                makeEditable();
 
-                history.pushState({page: "page2"}, `${firstName}'s Resume`, `${firstName}-resume.vercel.app`);
+            const resumeContainer = document.querySelector(".resume-container") as HTMLDivElement;
+            resumeContainer.style.borderColor = "rgba(125, 186, 92, 0.5)";
+            resumeContainer.innerHTML = resumeContent;
 
-        } else{
-        console.error('One or More Output Elements are Missing');
-    };
-})};
-  
+            downloadButton.style.display = "inline";
+            hintPara.style.display = "block";
+
+            makeEditable();
+
+            history.pushState({ page: "page2" }, `${firstName}'s Resume`, `${firstName}-resume.vercel.app`);
+
+        } else {
+            console.error('One or More Output Elements are Missing');
+        };
+    })
+};
+
 // Form Input Ends here. // 
 
 // Make Editable Starts here. //
@@ -250,12 +256,6 @@ function makeEditable() {
 }
 
 // Make editable ends here. //
-
-
-
-
-
-
 
 
 educationExpander();

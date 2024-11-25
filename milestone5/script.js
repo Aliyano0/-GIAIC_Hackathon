@@ -7,6 +7,7 @@ const workExpBtn = document.getElementById("workexp-btn");
 const skillsBtn = document.getElementById("skills-btn");
 const educationBtn = document.getElementById("education-btn");
 const downloadButton = document.getElementById("download-resume");
+const hintPara = document.querySelector(".hint-para");
 // Event Listeners 
 function workExpExpander() {
     let clutter = " ";
@@ -182,6 +183,7 @@ function generateResume() {
             resumeContainer.style.borderColor = "rgba(125, 186, 92, 0.5)";
             resumeContainer.innerHTML = resumeContent;
             downloadButton.style.display = "inline";
+            hintPara.style.display = "block";
             makeEditable();
             history.pushState({ page: "page2" }, `${firstName}'s Resume`, `${firstName}-resume.vercel.app`);
         }
