@@ -4,16 +4,126 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editable Website Builder</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   </head>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <body>
     <div class="container">
       <header class="heading">
         <h1 class="heading-text">Milestone 5: Build your Resume</h1>
       </header>
       <main>
+        <div class="resume-template">
+          <div class="template-para-container">
+            <p class="template-para">Resume Template</p>
+          </div>
+          <div>
+            <div class="heading-display">
+              <h1 class="heading-text-display">Resume</h1>
+            </div>
+
+            <div class="main-content">
+              <div class="template-img-cont">
+                <img
+                  class="img"
+                  src="./images/CV-image-placeholder.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div class="contactinfo-display">
+                <h2 class="display-headings">Contact Information:</h2>
+                <p class="display-paragraphs">
+                  <strong>Name: </strong> <span class="editable">John Doe</span>
+                </p>
+                <p class="display-paragraphs">
+                  <strong>Phone Number: </strong>
+                  <span class="editable">0900-78601</span>
+                </p>
+                <p class="display-paragraphs">
+                  <strong>Email: </strong>
+                  <span class="editable">johndoe123@example.com</span>
+                </p>
+                <p class="display-paragraphs">
+                  <strong>Address: </strong>
+                  <span class="editable"
+                    >132 My Street, Kingston, New York 12401.</span
+                  >
+                </p>
+              </div>
+
+              <div class="education-display">
+                <h2 class="display-headings">Education:</h2>
+                <ul>
+                  <li class="display-lis">
+                    <strong>Institution: </strong>
+                    <span class="editable">University of New York</span>
+                  </li>
+                  <li class="display-lis">
+                    <strong>Degree: </strong>
+                    <span class="editable">Masters in Economics</span>
+                  </li>
+                  <li class="display-lis">
+                    <strong>Start Date: </strong>
+                    <span class="editable">20/2/2021</span>
+                  </li>
+                  <li class="display-lis">
+                    <strong>End Date: </strong>
+                    <span class="editable">Unknown</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="workexp-display">
+                <h2 class="display-headings">Work Experience:</h2>
+                <ul>
+                  <li class="display-lis">
+                    <strong>Company Name: </strong>
+                    <span class="editable">Example Private Limited</span>
+                  </li>
+                  <li class="display-lis">
+                    <strong>Position: </strong>
+                    <span class="editable">Manager</span>
+                  </li>
+                  <li class="display-lis">
+                    <strong>Start Date: </strong>
+                    <span class="editable">15/4/2023</span>
+                  </li>
+                  <li class="display-lis">
+                    <strong>End Date: </strong>
+                    <span class="editable">..</span>
+                  </li>
+                  <li class="display-lis">
+                    <strong>Description: </strong>
+                    <span class="editable description-li"
+                      >Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Sequi blanditiis quas beatae commodi asperiores aspernatur
+                      nihil ea iste et facilis?</span
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="skills-display">
+                <h2 class="display-headings">Skills</h2>
+                <ul>
+                  <li class="display-lis">
+                    <strong>Skill: </strong>
+                    <span class="editable">Web Developer</span>
+                  </li>
+                  <li class="display-lis">
+                    <strong>Skill Level: </strong>
+                    <span class="editable">Intermediate Level</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="template-btn-container">
+              <button id="generate-form-btn">Generate Your Resume</button>
+            </div>
+          </div>
+        </div>
         <div class="form-div">
           <form method="GET" class="form-container" id="resume-form">
             <!-- Contact Information starts here  -->
@@ -279,26 +389,34 @@
   <script>
     // PDF FEATURE STARTS HERE. //
     window.jsPDF = window.jspdf.jsPDF;
-    let doc = new jsPDF("p", "mm", "a4");
+    let doc = new jsPDF("l", "pt");
     const downloadButton = document.getElementById("download-resume");
-    function pdfDownloader() {
-      if (downloadButton) {
-        downloadButton.addEventListener("click", function () {
-          const resume = document.querySelector(".resume-container");
-          if (resume) {
-            doc.html(resume, {
-              callback: function (doc) {
-                doc.save("resume.pdf");
-              },
-            });
-          } else {
-            console.error("Resume not found!");
-          }
-        });
-      }
-    }
+    const resume = document.querySelector(".resume-container");
 
-    // Call the function when the DOM is ready
-    document.addEventListener("DOMContentLoaded", pdfDownloader);
+    async function pdfDownloader() {
+      await html2canvas(resume, {
+        allowTaint: true,
+        useCORS: true,
+      }).then((canvas) => {
+        doc.addImage(canvas.toDataURL("image/png"), "PNG", 50, 20, 600, 800);
+      });
+
+      doc.save("Resume.pdf");
+      // if (downloadButton) {
+      //   downloadButton.addEventListener("click", function () {
+      //     if (resume) {
+      //       doc.html(resume, {
+      //         callback: function (doc) {
+      //           doc.save("resume.pdf");
+      //         },
+      //       });
+      //     } else {
+      //       console.error("Resume not found!");
+      //     }
+      //   });
+      // }
+    }
+    // document.addEventListener("DOMContentLoaded", pdfDownloader);
+    downloadButton.addEventListener("click", pdfDownloader);
   </script>
 </html>

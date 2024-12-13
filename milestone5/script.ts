@@ -3,15 +3,23 @@
 const workExp = document.querySelector(".workexp-data") as HTMLDivElement;
 const education = document.querySelector(".education-data") as HTMLDivElement;
 const skills = document.querySelector(".skills-data") as HTMLDivElement;
-
+const resumeTemplate = document.querySelector(".resume-template") as HTMLDivElement;
+const formContainer = document.querySelector(".form-container") as HTMLDivElement;
 // Buttons
 const workExpBtn = document.getElementById("workexp-btn") as HTMLButtonElement;
 const skillsBtn = document.getElementById("skills-btn") as HTMLButtonElement;
 const educationBtn = document.getElementById("education-btn") as HTMLButtonElement;
-
+const generateFormBtn = document.getElementById("generate-form-btn") as HTMLButtonElement;
 const downloadButton = document.getElementById("download-resume") as HTMLButtonElement;
 const hintPara = document.querySelector(".hint-para") as HTMLButtonElement;
 // Event Listeners 
+
+function generateForm() {
+    generateFormBtn.addEventListener("click", () => {
+        resumeTemplate.style.display = "none";
+        formContainer.style.display = "block";
+    })
+}
 function workExpExpander() {
     let clutter: string = " ";
     workExpBtn.addEventListener("click", function () {
@@ -181,7 +189,7 @@ function generateResume() {
                             <li class="display-lis"><strong>Position: </strong> <span class="editable">${experiencePosition}</span></li>
                             <li class="display-lis"><strong>Start Date: </strong> <span class="editable">${experienceWorkSdate}</span></li>
                             <li class="display-lis"><strong>End Date: </strong> <span class="editable">${experienceWorkEdate}</span></li>
-                            <li class="display-lis"><strong>Description: </strong> <span class="editable">${experienceWorkDesc}</span></li>
+                            <li class="display-lis"><strong>Description: </strong> <span class="editable description-li">${experienceWorkDesc}</span></li>
                         </ul>
                         </div>
 
@@ -200,7 +208,7 @@ function generateResume() {
             const resumeContainer = document.querySelector(".resume-container") as HTMLDivElement;
             resumeContainer.style.borderColor = "rgba(125, 186, 92, 0.5)";
             resumeContainer.innerHTML = resumeContent;
-
+            formContainer.style.display = "none";
             downloadButton.style.display = "inline";
             hintPara.style.display = "block";
 
@@ -257,7 +265,7 @@ function makeEditable() {
 
 // Make editable ends here. //
 
-
+generateForm();
 educationExpander();
 skillsExpander();
 workExpExpander();

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 :root {
   --green: #7dba5c;
   --black: #000;
@@ -25,9 +27,57 @@ main {
   border: 2px solid rgba(0, 0, 0, 0.013);
   padding-bottom: 2rem;
 }
+.resume-template {
+  width: 750px;
+  margin: 3em auto;
+  padding: 2em;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  position: relative;
+  transition: ease-in;
+  color: rgb(99, 122, 53);
+  border: 1px solid rgba(163, 160, 160, 0.37);
+}
+.template-img-cont {
+  overflow: hidden;
+  width: 11rem;
+  height: 11rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 3rem;
+  top: 11rem;
+}
+.template-para-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+.template-para {
+  font-size: 24px;
+  font-weight: 500;
+  color: cadetblue;
+  text-decoration: underline;
+}
+.template-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 55px 0 20px 0;
+}
+#generate-form-btn {
+  padding: 10px 20px;
+  background-color: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+}
 .form-container {
   padding: 2em;
   margin: 0 3em;
+  display: none;
 }
 .heading {
   background-color: var(--green);
@@ -121,6 +171,7 @@ input {
 .heading-display {
   background-color: var(--green);
   border-radius: 4px;
+  font-family: "inter";
 }
 .heading-text-display {
   padding: 20px;
@@ -130,6 +181,7 @@ input {
 .main-content {
   margin-top: 25px;
   margin-left: 20px;
+  font-family: "inter";
 }
 .contactinfo-display {
   margin: 15px 0;
@@ -146,6 +198,12 @@ input {
 .display-lis {
   font-size: 1.3em;
   margin: 10px 30px;
+  display: flex;
+  gap: 10px;
+  align-items: top;
+}
+.description-li {
+  font-size: 18px !important;
 }
 .education-display {
   margin: 30px 0;
@@ -176,7 +234,13 @@ input {
   font-weight: 550;
   font-size: 1.1em;
 }
-
+.editing-input {
+  padding: 6px;
+  background-color: #fff;
+  font-size: 16px;
+  color: rgb(99, 122, 53);
+  font-weight: 500;
+}
 #download-resume {
   display: none;
   font-size: 24px;
@@ -228,7 +292,7 @@ input {
 
 @media screen and (max-width: 975px) {
   .container {
-    width: 100%;
+    width: 90%;
   }
   .display-hidden {
     display: block;
@@ -238,67 +302,288 @@ input {
   }
   .resume-container {
     width: 96%;
+  }
+  .resume-template {
+    width: 100%;
+    margin: 3em auto;
+    padding: 2em;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    position: relative;
+    transition: ease-in;
+    color: rgb(99, 122, 53);
+    border: 1px solid rgba(163, 160, 160, 0.37);
+  }
+  .template-img-cont {
+    overflow: hidden;
+    width: 11rem;
+    height: 11rem;
+    border-radius: 50%;
+    position: absolute;
+    right: 3rem;
+    top: 11rem;
+  }
+  .template-para-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+  }
+  .template-para {
+    font-size: 24px;
+    font-weight: 500;
+    color: cadetblue;
+    text-decoration: underline;
+  }
+  .template-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 55px 0 20px 0;
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 780px) {
+  .container {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 751px) {
   .container {
     width: 100%;
-  }
-  .display-hidden {
-    display: block;
-  }
-  .form-container {
-    margin: 0;
-  }
-  .inputs {
-    margin: 20px 0;
-  }
-  .btns {
-    padding: 6px 5px;
-  }
-  .resume-container {
-    width: 96%;
-    padding: 1rem;
   }
   .img-cont {
-    position: static;
-    margin: 20px auto 40px auto;
+    overflow: hidden;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    position: relative;
+    right: 0%;
+    top: 0rem;
+    margin-top: 20px;
   }
-  /* .main-content{
-    margin-left: 5px;
-  } */
-  .display-paragraphs,
-  .display-lis {
-    font-size: 1em;
-  }
-}
-@media screen and (max-width: 500px) {
-  .container {
-    width: 100%;
+  .template-img-cont {
+    overflow: hidden;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    position: relative;
+    right: 0%;
+    top: 0rem;
+    margin-top: 20px;
   }
   .display-hidden {
     display: block;
   }
+  .main-content {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 630px) {
+  .display-lis,
+  .display-paragraphs {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 630px) {
+  .display-lis,
+  .display-paragraphs {
+    font-size: 16px;
+  }
+  .resume-template {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media screen and (max-width: 427px) {
+  .inputs {
+    margin: 10px 0 15px 0;
+  }
+  .container {
+    width: 100%;
+  }
   .form-container {
     margin: 0;
+    padding: 2em 0 2em 10px;
+  }
+  .heading-display {
+    margin-left: -16px;
+  }
+  .heading-text-display {
+    margin: 0;
+  }
+  .img-cont {
+    overflow: hidden;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    position: relative;
+    right: 0%;
+    top: 0rem;
+    margin-top: 20px;
   }
   .num-input {
     width: 40%;
   }
+  .contactinfo-display {
+    margin-top: 20px;
+  }
+  .skills-display {
+    margin-bottom: 0;
+  }
   .display-headings {
-    font-size: 1.2rem;
+    font-size: 1.7rem;
   }
   .display-paragraphs,
   .display-lis {
-    font-size: 0.7em;
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .border {
+    margin: 1.5rem 0;
+  }
+
+  .btns {
+    padding: 3px 5px;
+  }
+  .resume-container {
+    width: 98%;
+  }
+  .resume-template {
+    padding: 1em 16px;
+    color: rgb(99, 122, 53);
+    border: 1px solid rgba(163, 160, 160, 0.37);
+  }
+  .main-content {
+    margin: 0px;
+  }
+  .template-img-cont {
+    overflow: hidden;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    position: relative;
+    right: 0%;
+    top: 0rem;
+    margin-top: 20px;
+  }
+  .template-para-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+  }
+  .template-para {
+    font-size: 20px;
+    font-weight: 500;
+    color: cadetblue;
+    text-decoration: underline;
+  }
+  .template-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 55px 0 20px 0;
+  }
+}
+@media screen and (max-width: 391px) {
+  .container {
+    width: 100%;
+  }
+  .display-hidden {
+    display: block;
   }
   .inputs {
-    margin: 20px 0;
+    margin: 10px 0 15px 0;
+  }
+  .container {
+    width: 100%;
+  }
+  .form-container {
+    margin: 0;
+    padding: 2em 0 2em 10px;
+  }
+  .heading-display {
+    margin-left: -16px;
+  }
+  .heading-text-display {
+    margin: 0;
+  }
+  .contactinfo-display {
+    margin-top: 20px;
+  }
+  .skills-display {
+    margin-bottom: 0;
+  }
+  .display-headings {
+    font-size: 1.3rem;
+  }
+  .display-lis,
+  .display-paragraphs {
+    font-size: 14px !important;
+    line-height: 17px;
+    margin: 10px 15px;
+    font-weight: 500;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .description-li {
+    font-size: 14px !important;
+    line-height: 17px;
   }
   .btns {
     padding: 6px 5px;
   }
+  .heading-display {
+    margin-left: 0;
+  }
   .resume-container {
     width: 98%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .resume-template {
+    padding: 1em 16px;
+    color: rgb(99, 122, 53);
+    border: 1px solid rgba(163, 160, 160, 0.37);
+  }
+  .main-content {
+    margin: 0px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .form-headings {
+    font-size: 1.8rem;
+  }
+  .labels {
+    font-size: 1.4rem;
+  }
+  .inputs {
+    padding: 6px 5px 6px 3px;
+    font-size: 14px;
+    margin: 8px;
+  }
+  .display-lis,
+  .display-paragraphs {
+    font-size: 12px !important;
+    line-height: 17px;
+    margin: 10px 10px;
+  }
+  .description-li {
+    font-size: 12px !important;
+    line-height: 17px;
+  }
+  .heading-display {
+    margin-left: 0;
+  }
+  .resume-container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .template-img-cont,
+  .img-cont {
+    width: 8rem;
+    height: 8rem;
   }
 }
